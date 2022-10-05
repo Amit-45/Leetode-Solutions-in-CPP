@@ -1,16 +1,18 @@
-Link - https://leetcode.com/problems/subtract-the-product-and-sum-of-digits-of-an-integer/
+Link - https://leetcode.com/problems/number-of-1-bits/
 class Solution {
 public:
-    int subtractProductAndSum(int n) {
-        int sum=0;
-        int prod=1;
-        while(n!=0){
-        int last=n%10;
-        sum=sum+last;
-        prod=prod*last;
-        n=n/10;
-        }
+int hammingWeight(uint32_t n)
+{
 
-      return prod-sum;   
-    }
+  int ans =0;
+  while(n!=0)
+  {
+    ans = ans + n % 2;
+    n = n / 2;
+  }
+
+
+return ans;
+}
+
 };
