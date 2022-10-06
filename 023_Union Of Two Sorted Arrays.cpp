@@ -29,7 +29,7 @@ int main()
 
   // freq map to store frequency of 1st array elements
   map<int, int> freq;
-  for (int i = 0; i < 10; i++)
+  for (int i = 0; i < n; i++)
     freq[arr1[i]]++;
   for (auto &pair : freq)
   {
