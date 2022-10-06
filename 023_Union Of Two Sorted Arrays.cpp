@@ -120,6 +120,60 @@ int main()
 }
 
 
+//Optimal approach(two pointer approach)
+class Solution{
+    public:
+    //arr1,arr2 : the arrays
+    // n, m: size of arrays
+    //Function to return a list containing the union of the two arrays. 
+    vector<int> findUnion(int arr1[], int arr2[], int n, int m)
+    {
+        int i = 0, j = 0;
+  vector<int> Union; // Union vector
+  while (i < n && j < m)
+  {
+    if (arr1[i] < arr2[j]) // Case 1  i<j
+    {
+      if (Union.size() == 0 || Union.back() != arr1[i])
+        Union.push_back(arr1[i]);
+      i++;
+    }
+    else if (arr1[i] == arr2[j]) // Case 2 i=j
+    {
+      if (Union.size() == 0 || Union.back() != arr1[i])
+        Union.push_back(arr1[i]);
+      i++;
+      j++;
+    }
+    else // case 3 j<i
+    {
+      if (Union.size() == 0 || Union.back() != arr2[j])
+        Union.push_back(arr2[j]);
+      j++;
+    }
+  }
+  
+  //returning the elements of the bigger array
+  while (i < n) 
+  {
+    if (Union.back() != arr1[i])
+      Union.push_back(arr1[i]);
+    i++;
+  }
+  while (j < m) 
+  {
+    if (Union.back() != arr2[j])
+      Union.push_back(arr2[j]);
+    j++;
+  }
+  return Union;
+       
+    }
+
+
+
+};
+
 
 
 
