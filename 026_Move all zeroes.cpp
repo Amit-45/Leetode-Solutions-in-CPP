@@ -27,6 +27,7 @@ void zerosToEnd(int arr[], int n)
   while (i < n && j < n)
   {
     // if non zero element swap , then increment i,incerment j
+    //if 0 only increment j
     if (arr[j] != 0)
     {
       swap(arr[i], arr[j]);
