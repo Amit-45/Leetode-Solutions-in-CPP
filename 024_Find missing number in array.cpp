@@ -55,4 +55,4 @@ pair<int, int> missingAndRepeating(vector<int> &arr, int n)
 
   return {missingNumber, repeating};
 }
-
+//Optimised approach (XOR approach)
