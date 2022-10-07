@@ -1,3 +1,27 @@
+//Brute force
+void zerosToEnd(int arr[],int n) {
+
+        int temp[n]; //create a temp array  
+        int k=0;
+        for (int i=0;i<n;i++){
+            //if we get a non zero element then ,insert into temp array ,increase the index of temp array   
+            if (arr[i]!=0){
+                temp[k]=arr[i];
+                k++;
+            }
+        }
+        //insert 0 in remaining part of array 
+        while (k<n){
+            temp[k]=0;
+            k++;
+        }
+        for(int i=0;i<n;i++)
+        {
+            cout<<temp[i]<<" ";
+        }
+    }
+
+
 //Optimal approach
 //Start traversing from the first occurrence index of Zero 
 //Tak 2 variables (i,j), i will be at the first occurrence of zero and j is at i+1 
