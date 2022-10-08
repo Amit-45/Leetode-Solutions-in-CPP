@@ -77,7 +77,8 @@ Better approach using 2 for loops  - Iterate over all sub arrays - (i loop and j
 }
 
 ================================KADANES ALGO ====================================================================================================
-  
+//sliding window cant be used in this case because it fails for negative numbers
+//but Kadanes algo takes negative numbers into cosideration as well
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
