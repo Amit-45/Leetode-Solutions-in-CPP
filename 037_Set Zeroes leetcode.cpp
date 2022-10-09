@@ -71,3 +71,66 @@ int main()
   }
   return 0;
 }
+===============================BETTER APPROACH========================================================================
+#include <bits/stdc++.h>
+using namespace std;
+
+void setRowColumnToZero(int matrix[][100], int m, int n)
+{
+
+  int rowsArray[m];
+  fill_n(rowsArray, m, 1); // fill rowsArray with 1
+  int colsArray[n];
+  fill_n(rowsArray, m, 1); // fill colsArray with 1
+
+  for (int i = 0; i < m; i++)
+  {
+    for (int j = 0; j < n; j++)
+    {
+      // if any row or column of our matrix is 0,
+      // then we poplate that index of  rowsArray as well as colsArray to 0
+      if (matrix[i][j] == 0)
+      {
+        rowsArray[i] = 0;
+        colsArray[j] = 0;
+      }
+    }
+  }
+  // again we traverse the matrix elements
+  // for any (i,j), if rowsArray[i] or colsArray[j] is 0 then update matrix[i][j] to 0.
+  for (int i = 0; i < m; i++)
+  {
+    for (int j = 0; j < n; j++)
+    {
+      if (rowsArray[i] == 0 || colsArray[j] == 0)
+        matrix[i][j] = 0;
+    }
+  }
+}
+
+int main()
+{
+  int arr[100][100];
+  int m, n;
+  cout << "Enter m and n value :" << endl;
+  cin >> m >> n;
+  cout << "Enter matrix elements:" << endl;
+  for (int i = 0; i < m; i++)
+  {
+    for (int j = 0; j < n; j++)
+    {
+      cin >> arr[i][j];
+    }
+  }
+  setRowColumnToZero(arr, m, n);
+  cout << " " << endl;
+  for (int i = 0; i < m; i++)
+  {
+    for (int j = 0; j < n; j++)
+    {
+      cout << arr[i][j] << " ";
+    }
+    cout << endl;
+  }
+  return 0;
+}
