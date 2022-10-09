@@ -48,10 +48,43 @@ public:
         
     }
 };
+
+========================================Using hashmap=============================================================================================
+	Intuition: Use a better data structure to reduce the number of look-up operations and hence the time complexity. 
+Moreover, we have been calculating the count of the same element again and again – so we have to reduce that also.
+
+Approach:
+- Use a hashmap and store as (key, value) pairs. (Can also use frequency array based on the size of nums)
+- Here the key will be the element of the array and the value will be the number of times it occurs.
+- Traverse the array and update the value of the key. Simultaneously check if the value is greater than the floor of N/2.
+- If yes, return the key
+- Else iterate forward.
+
+Time Complexity: O(N)-> Frequency array or O(N log N) -> HashMap
+Space Complexity: O(N)
+*/
+int usingHashMap(vector<int> nums, int n)
+{
+    unordered_map<int, int> mp;
+
+    for (int i = 0; i < n; i++)
+    {
+        mp[nums[i]]++;
+    }
+
+    int ans = -1;
+    for (auto x : mp)
+    {
+        if (x.second > n / 2)
+            ans = x.first;
+    }
+    return ans;
+}
+
 =========================================================================================================================================================
 =============================================Using MOORE VOTING ALGO=====================================================================================
 ===========================================================================================================================================================
-Moore’s Voting Algorithm INTUTION:-
+Moore’s Voting Algorithm INTUTION:-(BEST SOLUTIOM)
 	
 The question clearly states that the nums array has a majority element. Since it has a majority element we can say definitely the count is more than N/2.
 
