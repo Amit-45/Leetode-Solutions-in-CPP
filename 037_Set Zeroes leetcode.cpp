@@ -88,7 +88,7 @@ void setRowColumnToZero(int matrix[][100], int m, int n)
     for (int j = 0; j < n; j++)
     {
       // if any row or column of our matrix is 0,
-      // then we poplate that index of  rowsArray as well as colsArray to 0
+      // then we poplate that particular index of  rowsArray as well as colsArray to 0
       if (matrix[i][j] == 0)
       {
         rowsArray[i] = 0;
