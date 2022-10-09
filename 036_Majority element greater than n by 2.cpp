@@ -1,45 +1,32 @@
 https://leetcode.com/problems/majority-element/description/
-===============================BRUTE FORCE==============================================================================================
+===============================BRUTE FORCE============================================================================================== 
 #include <bits/stdc++.h>
 using namespace std;
- 
 
-//we have to just add the main condition 
-Total approach of brute force:
-1. Check the count of occurrences of all elements of the array one by one.
-2. Start from the first element of the array and count the number of times it occurs in the array.
-3. Main condition :If the count is greater than the floor of N/2 then return that element as the answer. 
-   If not, proceed with the next element in the array and repeat the process.
-  
-//this function returns the frequency of all elements in array(step 1 and step 2)
-void countFreq(int arr[], int n)
+int countEveryElements(int nums[], int n)
 {
-    vector<bool> visited(n, false);
- 
-    for (int i = 0; i < n; i++) {
- 
-        // Skip this element if already processed
-        if (visited[i] == true)
-            continue;
- 
-        // Count frequency
-        int count = 1;
-        for (int j = i + 1; j < n; j++) {
-            if (arr[i] == arr[j]) {
-                visited[j] = true;
-                count++;
-            }
-        }
-        cout << arr[i] << " " << count << endl;
-    }
+  int count;
+  for (int i = 0; i < n; i++)
+  {
+
+    count = 0;
+    for (int j = 0; j < n; j++)
+      if (nums[j] == nums[i])
+        count++;
+
+    if (count > n / 2)
+      return nums[i];
+  }
+
+  return -1;
 }
- 
+
 int main()
 {
-    int arr[] = {10,5,10,15,10,5};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    countFreq(arr, n);
-    return 0;
+  int nums[] = {3, 2, 3};                              ------ TAKE CARE OF INPUTS(The question clearly states that the nums array has a majority element)-------- 2,2,1,1,1,2,2  or 3,2,3 -----------------
+  int n = sizeof(nums) / sizeof(nums[0]);
+  countEveryElements(nums, n);
+  return 0;
 }
 ================================BETTER SOLUTION [not the unordered map solution]==========================================================================================================
 The definition of majority element in the question is, THE ELEMENT that occurs MORE THAN n/2 times. 
@@ -55,7 +42,7 @@ public:
     int majorityElement(vector<int>& nums) {
         int n = nums.size();
 		
-        sort(nums.begin(),nums.end());
+        sort(nums.begin(),nums.end());   //O(NLogN)
 		
         return nums[n/2];
         
