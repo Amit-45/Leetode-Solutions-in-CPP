@@ -61,29 +61,52 @@ public:
         
     }
 };
+=========================================================================================================================================================
 =============================================Using MOORE VOTING ALGO=====================================================================================
-class Solution {
+===========================================================================================================================================================
+Moore’s Voting Algorithm INTUTION:-
+	
+The question clearly states that the nums array has a majority element. Since it has a majority element we can say definitely the count is more than N/2.
+
+Majority element count = N/2 + x;
+
+Minority/Other elements = N/2 – x;
+
+Where x is the number of times it occurs after reaching the minimum value N/2.
+
+Now, we can say that count of minority elements and majority elements are equal up to a certain point of time in the array. So when we traverse through the array we try to keep track of the count of elements and which element we are tracking. Since the majority element appears more than N/2 times, we can say that at some point in array traversal we find the majority element. 
+
+APPROACH: 
+
+Initialize 2 variables: 
+Count –  for tracking the count of element
+Element – for which element we are counting
+Traverse through nums array.
+    If Count is 0 then initialize the current traversing integer of array as Element        if(count==0)  -->  element = ith element   
+    If the traversing integer of array and Element are same increase Count by 1             if(ith element==element)   --> count++
+    If they are different decrease Count by 1                                               if(ith element != element)  -->  count--
+Return the element 
+
+class Solution
+{
 public:
-    int majorityElement(vector<int>& nums) 
+  int majorityElement(vector<int> &nums)
+  {
+
+    // MOOORE voting algo
+    int ele = 0;
+    int cnt = 0;
+
+    for (int i = 0; i < nums.size(); i++)
     {
-        // Moore Voting Algorithm
-        // find each pair of different values and delete them, 
-        // then the remaining element is the majrity element
-        // if the majority one may not exist, you should rescan the array to check its correctness
-        
-        int ele = nums[0];
-        int cnt = 0;
-        
-        for(int i=0; i < nums.size(); i++)
-        {
-            if(nums[i] == ele)
-                cnt++;
-            else if(cnt)
-                cnt--;
-            else // cnt == 0
-                ele = nums[i];
-        }
-        
-        return ele;
+      if (cnt == 0)
+        ele = nums[i];
+      if (nums[i] == ele)
+        cnt++;
+      else
+        cnt--;
     }
+
+    return ele;
+  }
 };
