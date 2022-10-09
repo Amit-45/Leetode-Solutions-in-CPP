@@ -1,6 +1,6 @@
 Refer - https://leetcode.com/problems/set-matrix-zeroes/solutions/2525398/all-approaches-from-brute-force-to-optimal-with-easy-explanation/?page=2
 
-=============BRUTE FORCE====================================================================================================Time: O((mn)*(m+n))==============
+=============BRUTE FORCE===================================================================Time: O((mn)*(m+n))============== Space: O(mn)=======================
 1. crate a new matrix 
 2. copy all the elements of matrix1 to matrix2 ,  
 3. if we find zero in any row or column of matrix2, then change all the elements of that row or column to 0
@@ -71,7 +71,7 @@ int main()
   }
   return 0;
 }
-===============================BETTER APPROACH========================================================================Time: O(mn)========================
+===============================BETTER APPROACH============================================Time: O(mn)======================== Space: O(m+n)================
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -134,7 +134,7 @@ int main()
   }
   return 0;
 }
-=================================OPTIMAL APPROACH=================================================
+=================================OPTIMAL APPROACH=================================================Time: O(mn)===========Space:O(1)======================
  1. first we will traverse the 0th row and 0th column of the given matrix and if we encounter any 0 
  2. then we will set the isRow0/isCol0 variable to true which indicates that the 0th row/0th column of the given matrix will become 0
  3 next we will traverse the remaining matrix except 0th row and 0th column 
