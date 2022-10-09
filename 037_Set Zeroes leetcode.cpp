@@ -1,12 +1,13 @@
 Refer - https://leetcode.com/problems/set-matrix-zeroes/solutions/2525398/all-approaches-from-brute-force-to-optimal-with-easy-explanation/?page=2
 
-=============BRUTE FORCE====================================================================================================
+=============BRUTE FORCE====================================================================================================Time: O((mn)*(m+n))==============
 1. crate a new matrix 
 2. copy all the elements of matrix1 to matrix2 ,  
 3. if we find zero in any row or column of matrix2, then change all the elements of that row or column to 0
 4. copying back elements of matrix2 to the matrix1
 
-
+#include <bits/stdc++.h>
+using namespace std;
 void setRowColumnToZero(int matrix[][100], int m, int n)
 {
 
@@ -42,8 +43,7 @@ void setRowColumnToZero(int matrix[][100], int m, int n)
       matrix[i][j] = matrix2[i][j];
   }
 }
-#include <bits/stdc++.h>
-using namespace std;
+
 
 int main()
 {
@@ -71,7 +71,7 @@ int main()
   }
   return 0;
 }
-===============================BETTER APPROACH========================================================================
+===============================BETTER APPROACH========================================================================Time: O(mn)========================
 #include <bits/stdc++.h>
 using namespace std;
 
