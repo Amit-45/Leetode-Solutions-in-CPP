@@ -82,3 +82,31 @@ long maximumSumSubarray(int K, vector<int> &Arr, int N)
 }
 }
 ;
+======================Optimised (Using hash table )===================================================================================
+  
+  
+   int lenOfLongSubarr(int A[],  int N, int K) 
+    { 
+       
+       
+            // Complete the function
+            unordered_map<int, int> mp;
+            int sum= 0, maxlen = 0;
+            for (int i = 0; i < N; i++)
+            {
+              sum += A[i];
+              if (sum == K)
+                maxlen = i + 1;
+              if (mp.find(sum) == mp.end())
+                mp[sum] = i;
+              if (mp.find(sum - K) != mp.end())
+              {
+                if (maxlen < (i - mp[sum - K]))
+                  maxlen = i - mp[sum - K];
+              }
+            }
+            return maxlen;       
+     
+    } 
+
+  
