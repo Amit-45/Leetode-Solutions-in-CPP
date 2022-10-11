@@ -1,4 +1,7 @@
 ===========================BRUTE FORCE [Same as longest subarray of sum k problems brute force]=====================================================================================================
+https://github.com/Amit-45/Leetode-Solutions-in-C-/blob/main/027%20Max%20Sum%20Subarray%20of%20size%20K.cpp
+
+
 class Solution{
     public:
     int maxLen(vector<int>&A, int n)
