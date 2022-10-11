@@ -1,3 +1,5 @@
+//https://www.youtube.com/watch?v=Q1lj9B33Euc
+//Explanation - in notes 
 class Solution {
 public:
     vector<vector<int>> generate(int numRows) {
