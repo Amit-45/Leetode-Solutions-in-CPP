@@ -1,4 +1,4 @@
-===========================BRUTE FORCE=====================================================================================================
+===========================BRUTE FORCE [Same as longest subarray of sum k problems brute force]=====================================================================================================
 class Solution{
     public:
     int maxLen(vector<int>&A, int n)
@@ -19,7 +19,7 @@ class Solution{
 
   
   
-====================== CHECK IF SUBARRAY OF SUM 0 EXISTS=====================================================================================
+====================== SIMILAR QUESTION: CHECK IF SUBARRAY OF SUM 0 EXISTS=====================================================================================
 #include <bits/stdc++.h>
 using namespace std;
 int main()
