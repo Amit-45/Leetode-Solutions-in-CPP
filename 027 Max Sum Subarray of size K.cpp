@@ -83,6 +83,8 @@ long maximumSumSubarray(int K, vector<int> &Arr, int N)
 }
 ;
 ======================Optimised (Using hash table )===================================================================================
+  https://www.youtube.com/watch?v=jOYfCMVOyp4
+or take idea from this - https://www.youtube.com/watch?v=xmguZ6GbatA&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=25
   
   
    int lenOfLongSubarr(int A[],  int N, int K) 
