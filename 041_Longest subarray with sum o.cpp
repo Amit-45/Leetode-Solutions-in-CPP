@@ -1,4 +1,5 @@
  // Your code here
+https://github.com/Amit-45/Leetode-Solutions-in-C-/blob/main/028_Longest%20subarray%20having%20sum%20k.cpp
     unordered_map<int,int> mpp; 
     int maxi = 0;
     int sum = 0; 
