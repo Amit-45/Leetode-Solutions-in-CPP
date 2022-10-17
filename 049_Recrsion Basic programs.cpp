@@ -166,3 +166,38 @@ int main()
   }
   return 0;
 }
+-------------------------Print from N to 1(using global variable)-------------------------------------------------------------------------------------------------------
+
+#include <bits/stdc++.h>
+using namespace std;
+class Solution
+{
+public:
+  int count = 0;
+  void printNos(int N)
+  {
+    if (count == N)
+      return;
+    cout << N << " ";
+
+    N--;
+    printNos(N);
+  }
+};
+
+
+int main()
+{
+  int T;
+  cin >> T;
+
+  while (T--)
+  {
+    int N;
+    cin >> N;
+    Solution ob;
+    ob.printNos(N);
+    cout << "\n";
+  }
+  return 0;
+}
