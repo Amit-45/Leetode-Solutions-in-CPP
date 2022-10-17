@@ -101,3 +101,35 @@ int main()
   return 0;
 }
 ----------------------Print name N times using recursion(Without using global variable)(using parameters )---------------------------------------------------
+  #include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
+public:
+  // int count = 1;
+  void printGfg(int count, int N)
+  {
+    if (count == N + 1)
+      return;
+    cout << "GFG ";
+    // count++;
+    printGfg(count + 1, N);
+  }
+};
+
+int main()
+{
+  int T;
+  cin >> T;
+
+  while (T--)
+  {
+    int N;
+    cin >> N;
+    Solution ob;
+    ob.printGfg(1, N);
+    cout << "\n";
+  }
+  return 0;
+}
