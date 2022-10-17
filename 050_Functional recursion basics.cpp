@@ -182,3 +182,25 @@ int main()
   }
   cout << checkPalindromeArray(arr, 0, n);
 }
+----------------Check palindrome string or not using one pointer recursion---------------------------------------------------------------
+  #include <bits/stdc++.h>
+using namespace std;
+bool checkPalindromeString(string str, int i, int n)
+{
+  if (i >= n / 2)
+    return true;
+
+  if (str[i] != str[n - i - 1])
+  {
+    return false;
+  }
+  return checkPalindromeString(str, i + 1, n);
+}
+int main()
+{
+  string str;
+  cin >> str;
+  int n = str.size();
+
+  cout << checkPalindromeString(str, 0, n);
+}
