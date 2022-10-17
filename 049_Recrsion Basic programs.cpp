@@ -233,3 +233,36 @@ int main()
   }
   return 0;
 }
+
+-----------Print N to 1 using recursion(Using back tracking)----------------------------------------------------------------------
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
+public:
+  void printNos(int count, int N)
+  {
+    if (N == 0)
+      return;
+    cout << N << " ";
+    printNos(count, N - 1);
+  }
+};
+
+int main()
+{
+  int T;
+  cin >> T;
+
+  while (T--)
+  {
+    int N;
+    cin >> N;
+    Solution ob;
+    ob.printNos(N, N);
+    cout << "\n";
+  }
+  return 0;
+}
