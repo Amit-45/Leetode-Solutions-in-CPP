@@ -93,3 +93,34 @@ int main()
   }
   return 0;
 }
+---------------------Reverse array using recursion---------------------------------------------------------------------------------
+  #include <bits/stdc++.h>
+using namespace std;
+
+void printArray(int arr[], int n)
+{
+  for (int i = 0; i < n; i++)
+  {
+    cout << arr[i] << " ";
+  }
+}
+void reverseArray(int arr[], int low, int high)
+{
+  if (low >= high)
+    return;
+
+  swap(arr[low], arr[high]);
+  reverseArray(arr, low + 1, high - 1);
+}
+int main()
+{
+  int n, i;
+  cin >> n;
+  int arr[n];
+  for (i = 0; i < n; i++)
+  {
+    cin >> arr[i];
+  }
+  reverseArray(arr, 0, n - 1);
+  printArray(arr, n);
+}
