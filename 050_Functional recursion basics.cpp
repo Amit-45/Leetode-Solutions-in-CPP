@@ -58,3 +58,38 @@ int main()
   }
   return 0;
 }
+---------------------Sum of N cube numbers [O(N) solution]----------------------------------------------------------------------------------
+  #include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
+public:
+  long long sum = 0;
+  long long sumOfNCubeSeries(long long N)
+  {
+    if (N == 0)
+      return 0;
+
+    sumOfNCubeSeries(N - 1);
+    sum = (long)(sum + pow(N, 3));
+
+    return sum;
+  }
+};
+
+int main()
+{
+  int T;
+  cin >> T;
+
+  while (T--)
+  {
+    long long N;
+    cin >> N;
+    Solution ob;
+    cout << ob.sumOfNCubeSeries(N);
+    cout << "\n";
+  }
+  return 0;
+}
