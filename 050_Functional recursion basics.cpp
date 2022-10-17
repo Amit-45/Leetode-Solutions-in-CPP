@@ -12,7 +12,7 @@ public:
     return n + (sumOfSeriesTillN(n - 1));
   }
 };
---------------------------------Fibonacci( using functional recursion)--------------------------------------------------------------------------------------------
+
 int main()
 {
   int T;
@@ -28,7 +28,7 @@ int main()
   }
   return 0;
 }
-
+--------------------------------Fibonacci( using functional recursion)--------------------------------------------------------------------------------------------
 #include <bits/stdc++.h>
 using namespace std;
 
