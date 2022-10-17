@@ -133,3 +133,36 @@ int main()
   }
   return 0;
 }
+
+-------------------------Print from N to 1(using parameters )-------------------------------------------------------------------------------------------------------
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
+public:
+  void printNos(int count, int N)
+  {
+    if (count == 0)
+      return;
+    cout << count << " ";
+    printNos(count - 1, N);
+  }
+};
+
+int main()
+{
+  int T;
+  cin >> T;
+
+  while (T--)
+  {
+    int N;
+    cin >> N;
+    Solution ob;
+    ob.printNos(N, N);
+    cout << "\n";
+  }
+  return 0;
+}
