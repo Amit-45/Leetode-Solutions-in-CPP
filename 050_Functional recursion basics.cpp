@@ -58,7 +58,7 @@ int main()
   }
   return 0;
 }
----------------------Sum of N cube numbers [O(N) solution]----------------------------------------------------------------------------------
+---------------------Sum of N cube numbers [O(N) solution](using recursion)----------------------------------------------------------------------------------
   #include <bits/stdc++.h>
 using namespace std;
 
