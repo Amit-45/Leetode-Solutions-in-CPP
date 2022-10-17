@@ -157,3 +157,28 @@ int main()
   reverseArray(arr, 0, n);
   printArray(arr, n);
 }
+-----------------------------Check palindrome array or not (using one pointer recursion)--------------------------------------------------------------
+  #include <bits/stdc++.h>
+using namespace std;
+bool checkPalindromeArray(int arr[], int i, int n)
+{
+  if (i >= n / 2)
+    return true;
+
+  if (arr[i] != arr[n - i - 1])
+  {
+    return false;
+  }
+  return checkPalindromeArray(arr, i + 1, n);
+}
+int main()
+{
+  int n, i;
+  cin >> n;
+  int arr[n];
+  for (i = 0; i < n; i++)
+  {
+    cin >> arr[i];
+  }
+  cout << checkPalindromeArray(arr, 0, n);
+}
