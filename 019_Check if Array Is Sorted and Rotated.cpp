@@ -2,7 +2,7 @@ https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/description/
 class Solution {
 public:
     bool check(vector<int>& nums) {
-      //4 cases -> sorted(1 pair satisfies the formula)   sortedAndRotated(1 pair)  randomArray(more than 1 pair)  arrayWithSameElements(o pairs)
+      //4 cases -> sorted(1 pair satisfies the formula)   sortedAndRotated(1 pair)  randomArray(more than 1 pair)  arrayWithSameElements(0 pairs)
       //formula to check comparisons  ->  nums[i-1]>nums[i] 
                
       int n=nums.size();
