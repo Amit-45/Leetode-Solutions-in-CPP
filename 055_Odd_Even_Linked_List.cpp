@@ -1,5 +1,5 @@
 //OddEvenElements Leetcode -> codebix
-//Question is - Bring all even positioned elements to one side and odd positioned to the other 
+//Question is - Bring all even positioned elements to one side and odd positioned to the othe
 class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
