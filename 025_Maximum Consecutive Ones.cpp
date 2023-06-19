@@ -14,7 +14,7 @@ public:
             else {
                 cnt = 0;   
             }
-            // if count>max then update it to max
+            // if count>max then update it to maxi
             maxi = max(maxi, cnt); 
         }
         return maxi; 
