@@ -11,7 +11,7 @@ public:
                 // The peak element is on the right side
                 low = mid + 1;
             } else {
-                // The peak element is on the left side or at the mid index
+                // The peak element is on the left side or at mid index
                 high = mid;
             }
         }
