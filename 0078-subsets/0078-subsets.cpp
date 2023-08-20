@@ -1,23 +1,23 @@
 class Solution {
-private:
-    void generateSubsets(int index, const vector<int>& nums, vector<int>& curr, vector<vector<int>>& result) {
-        if (index == nums.size()) {
-            result.push_back(curr);
+    
+    void solve(vector<int>nums,int index,vector<int>out,vector<vector<int>>&ans)
+    {
+        if(index>=nums.size())
+        {
+            ans.push_back(out);
             return;
         }
-
-        generateSubsets(index + 1, nums, curr, result); // Exclude current element
-
-        curr.push_back(nums[index]); // Include current element
-        generateSubsets(index + 1, nums, curr, result);
-        curr.pop_back(); // Backtrack
+        solve(nums,index+1,out,ans);
+        out.push_back(nums[index]);
+        solve(nums,index+1,out,ans);
     }
-
+    
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
-        vector<vector<int>> ans1;
-        vector<int> curr;
-        generateSubsets(0, nums, curr, ans1);
-        return ans1;
+        vector<int>out;
+        vector<vector<int>>ans;
+        int index=0;
+        solve(nums,index,out,ans);
+        return ans;
     }
 };
