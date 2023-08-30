@@ -1,29 +1,35 @@
 class Solution {
 public:
-    void damn(vector<int> &h, vector<int> &right, vector<int> &left){
-        int n = h.size();
-        int mx = -1;
-        for(int i=0; i<n; i++){
-            left[i] = mx;
-            mx = max(mx, h[i]);
-        }
-        mx = -1;
-        for(int i=n-1; i>=0; i--){
-            right[i] = mx;
-            mx = max(mx, h[i]);
-        }
-    }
-
     int trap(vector<int>& height) {
-        int n = height.size();
-        vector<int> right(n), left(n);
-        damn(height, right, left);
         int ans = 0;
-
-        for(int i=0; i<n; i++){
-            if(min(right[i], left[i])>height[i])
-            ans += min(right[i], left[i]) - height[i];
+        int n = height.size();
+        
+        int left = 0, right = n - 1;
+        int leftBar = height[left], rightBar = height[right];
+        
+        while (left <= right) {
+            // Check which bar is the limiting bar - left or right
+            if (leftBar < rightBar) {
+                // If element that you are seeing now becomes the highest left,
+                // it will not store any water
+                if (height[left] > leftBar) {
+                    leftBar = height[left];
+                } else {
+                    ans += leftBar - height[left];
+                }
+                left++;
+            } else {
+                // If element that you are seeing now becomes the highest right,
+                // it will not store any water
+                if (height[right] > rightBar) {
+                    rightBar = height[right];
+                } else {
+                    ans += rightBar - height[right];
+                }
+                right--;
+            }
         }
+        
         return ans;
     }
 };
