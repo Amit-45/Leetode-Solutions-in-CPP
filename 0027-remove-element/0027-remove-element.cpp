@@ -2,17 +2,18 @@ class Solution {
 public:
     int removeElement(vector<int>& nums, int val) 
     {
-        auto it=nums.begin();
+        int count=0;
+        
         for(int i=0;i<nums.size();i++)
         {
-            if(nums[i]==val)
+            if(nums[i]!=val) 
             {
-                nums.erase(it);
-                it--;
-                i--;
+                nums[count]=nums[i];
+                count++;
             }
-          it++;  
-        }  
-        return nums.size(); 
+            
+        }
+
+        return count;
     }
 };
