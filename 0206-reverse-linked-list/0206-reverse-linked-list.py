@@ -1,3 +1,6 @@
+#Approach: Task1: Recursion will reverse the nodes other than 1 
+#        : Task2: I will just need to reverse the last one & make the last node point to None
+
 #Given: head->1->2->3->4
 #After recursion part reversed the part from 2 to 4 and returned a new head : ->1->[2<-3<-4]<-head 
 
