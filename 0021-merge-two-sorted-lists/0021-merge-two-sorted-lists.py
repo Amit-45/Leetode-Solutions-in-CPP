@@ -1,7 +1,9 @@
-#Recursive Approach: Take 2 pointers l1 and l2 (pointing to the 1st nodes of each linked list)
-#I will now find which is smaller among l1 and l2. The one that is smaller will be the gloabal minima (as both the LL are sorted). Suppose l1 is smaller 
-# Then i will say Recursion to sort everything from l1's next till the end 
-#After that what I will do is attach this sorted part(from l1's next till the end) to the global minima that is l1. Finally we get our answer after attaching.
+#Iterative Approach: Take 2 pointers l1 and l2 pointing to the first node of the LL
+#Find smaller among l1 and l2 and store it in "answer"
+#Shift the smaller one among l1 and l2 to next positon
+#Case arises when l1 or l2 end 
+#At that point append the other part to the "answer" 
+#Finally return the merged list
 
 # -------------ListNode class---------------------------------
 #Create a linked list from scratch:
@@ -9,26 +11,34 @@
 #Then assign the value to the node using self.val
 # Initialize the next pointer to None (end of the list by default) using self.next = next
 
-#---------------- recursive function called merge----------------
-#It takes 3 params(self, l1 and l2)
-
+#-------------mergeTwoLists------------------------
 #Now suppose we dont have l1 ie. if l1 is empty : Then as l2 is sorted the answer will be l1 right ? So we will return l2 using condition if not l1
-#Now suppose we dont have l2: Then as l1 is sorted the answer will be l2 right ? So return l1 using condition if not l2. So these are our base cases
+#Now suppose we dont have l2: Then as l1 is sorted the answer will be l2 right ? So return l1 using condition if not l2. So these are our edge cases
 
-#Now lets compare l1 and l2 using condition if(l1.val<l1.val)  and (else) 
-#If the conditon l1.val<l1.val satisfies, we will have to l1 as it will the global minima 
-#Now we will tell recursion to sort every thing after l1's next till the end  : self.merge(l1.next, l2)
-#After recursion sorts (l1's next till the end ) we will  attach this sorted part(from l1's next till the end) to the global minima l1 by : l1.next = self.merge(l1.next, l2)
-#Then we will return l1, the code ensures that the smaller value becomes the head of the merged list, 
+#Now we can create a dummy node.We can put any value inside it not an issue : ans = ListNode(-1)
+#Why we will use the dummy node ?
+#By creating the dummy node, you have a starting point in the linked list even when there are no actual nodes, yet so it can help in attachments: aage aage lagane ko 
+#Since Python variables store references to objects, both tail and ans now refer to the same dummy node object.So we can do tail = ans.
 
-#Now comes the else part (it handles both conditions l1.val<l1.val and l1.val==l1.val):
-# We do l2->next 
-#As we have already taken a node of l2,we keep l1 as it is and we will take everything after and give recursion to merge: l2.next = self.merge(l1, l2.next)
-#Then we will return l2, the code ensures that the smaller value becomes the head of the merged list
+#Now let us use a while loop like we use for merge sort or merge sorted arrays: while l1 and l2:
+#Till the while loop statisfies keep comparing l1 and l2.
+#[For case when l1 is smaller] :  attach l1,Then move both tail and l1 forward to next position. 
+#Do this by :  tail.next = l1, tail = l1 and l1 = l1.next
+#[For case when l2 is smaller] : attach l2,Then move both tail and l2 forward to next position. 
+#Do this by :  tail.next = l2, tail = l2, l2 = l2.next
+# If l1 is not empty, attach the remaining nodes
 
-#-----------------mergeTwoLists function -------------------------------------
-#We sill pass both the linked list in this function
-#return self.merge(list1, list2)
+#Case when l1 ends: if there are remaining nodes in l1. If l1 is not empty (i.e., it's not None), it means there are nodes left in l1 that need to be attached to the merged list.
+#As tail represents the last node in the merged list, We can use tail.next = l1 that will attach all the remaining nodes in l1 
+#So we can write         if l1: tail.next = l1
+
+#case when l2 ends: if there are remaining nodes in l2. If l2 is not empty (i.e., it's not None), it means there are nodes left in l2 that need to be attached to the merged list.
+#As tail represents the last node in the merged list, We can use tail.next = l2 that will attach all the remaining nodes in l2 
+# So we can write        if l2: tail.next = l2
+
+#Finally Skip the dummy node and return the merged list.Do this by : return ans.next
+
+
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -36,26 +46,34 @@ class ListNode:
         self.next = next
 
 class Solution:
-    def merge(self, l1, l2):
-        # Base case: If either list is empty, return the other list
+    def mergeTwoLists(self, l1, l2):
+        # Edge case: If either list is empty, return the other list
         if not l1:
             return l2
         if not l2:
             return l1
-
-        # Compare the values of the current nodes
-        if l1.val < l2.val:
-            l1.next = self.merge(l1.next, l2)
-            return l1
-        else:
-            l2.next = self.merge(l1, l2.next)
-            return l2
-
-    def mergeTwoLists(self, list1, list2):
-        return self.merge(list1, list2)
-
-# Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
+        
+        # Create a dummy node to simplify list construction
+        ans = ListNode(-1)
+        tail = ans
+        
+        # Iterate until both l1 and l2 become empty
+        while l1 and l2:
+            if l1.val < l2.val:
+                tail.next = l1  # Attach l1 to the merged list
+                tail = l1       # Move tail forward
+                l1 = l1.next    # Move l1 forward
+            else:
+                tail.next = l2  # Attach l2 to the merged list
+                tail = l2       # Move tail forward
+                l2 = l2.next    # Move l2 forward
+        
+        # If l1 is not empty, attach the remaining nodes
+        if l1:
+            tail.next = l1
+        
+        # If l2 is not empty, attach the remaining nodes
+        if l2:
+            tail.next = l2
+        
+        return ans.next  # Skip the dummy node and return the merged list
