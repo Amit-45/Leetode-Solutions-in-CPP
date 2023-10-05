@@ -36,6 +36,27 @@
 
 #TC-O(n logk) and SC-O(k))
 #---------------------------------------------------------------------
+#Other approaches to solve the problem:-
+# ---------------
+#APPROACH 1:
+#Create a vector of nodes
+#Put all nodes of LL in that vector, then sort them
+#Takw out 1 by 1
+#TC- O(nk log nk)
+#SC:O(nk)
+#------------------
+#APPROACH 2:
+#Convert into the MERGE TWO SORTED LL problem
+#Take any 2 LL
+#Merge them
+#Then sort them
+#Then tale out one by one 
+#TC -O(k*k*n)
+#SC - O(k)
+
+
+
+
 
 import heapq
 
