@@ -1,4 +1,4 @@
-#Merge sort TC(nlogn )
+#Merge sort TC(nlogn) SC(n)
 #Summary : Divide the array, Check for base case =1 Other wise call MergeSort for left and right part, Then call merge to merge these two,Return arr, At last return the mergeSort for whole array 
 #Main merge function approach: Create copies of l and r, figure out which is smaller, Push it into main array and update pointers accordingly, At last if any of the subarray left with elements push into the main array , Again update pointers
 # -----------------------------------------------------------------------
