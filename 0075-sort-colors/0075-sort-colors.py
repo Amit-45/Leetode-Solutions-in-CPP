@@ -27,3 +27,30 @@ class Solution(object):
             mid+=1
                 
         return nums
+
+
+# Bucket sort solution
+class Solution(object):
+    def sortColors(self, nums):
+        # Initialize three buckets for colors 0, 1, and 2
+        bucket0, bucket1, bucket2 = 0, 0, 0
+        
+        # Count the number of occurrences of each color
+        for num in nums:
+            if num == 0:
+                bucket0 += 1
+            elif num == 1:
+                bucket1 += 1
+            elif num == 2:
+                bucket2 += 1
+        
+        # Fill the original list with the sorted colors
+        for i in range(bucket0):
+            nums[i] = 0
+        for i in range(bucket0, bucket0 + bucket1):
+            nums[i] = 1
+        for i in range(bucket0 + bucket1, bucket0 + bucket1 + bucket2):
+            nums[i] = 2
+        
+        return nums
+
