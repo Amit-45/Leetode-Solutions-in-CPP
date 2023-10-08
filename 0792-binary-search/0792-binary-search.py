@@ -10,34 +10,34 @@
 #else : Target is in the left half  : Shift r 
 
 
-# class Solution(object):
-#     def search(self, nums, target):
-#         l, r = 0, len(nums) - 1
-#         while l <= r:
-#             m = l + (r - l) // 2
-#             if nums[m] == target:
-#                 return m
-#             elif nums[m] <target:
-#                 l = m + 1
-#             else:
-#                 r = m - 1      
-#         return -1
-#Binary search (recursive):
-
 class Solution(object):
-    def recursiveBS(self,nums,l,r,target):
-        #base case 
-        if l>r: 
-            return -1
-        m=(l+r)//2
-        if target==nums[m]:
-            return m
-        elif nums[m] <target:
-           return self.recursiveBS(nums,m+1,r,target)
-        else:
-            return self.recursiveBS(nums,l,m-1,target)
-
     def search(self, nums, target):
         l, r = 0, len(nums) - 1
-        return self.recursiveBS(nums,l,r,target)
+        while l <= r:
+            m = l + (r - l) // 2
+            if nums[m] == target:
+                return m
+            elif nums[m] <target:
+                l = m + 1
+            else:
+                r = m - 1      
+        return -1
+#Binary search (recursive):
+
+# class Solution(object):
+#     def recursiveBS(self,nums,l,r,target):
+#         #base case 
+#         if l>r: 
+#             return -1
+#         m=(l+r)//2
+#         if target==nums[m]:
+#             return m
+#         elif nums[m] <target:
+#            return self.recursiveBS(nums,m+1,r,target)
+#         else:
+#             return self.recursiveBS(nums,l,m-1,target)
+
+#     def search(self, nums, target):
+#         l, r = 0, len(nums) - 1
+#         return self.recursiveBS(nums,l,r,target)
   
