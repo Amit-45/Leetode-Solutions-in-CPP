@@ -6,14 +6,15 @@
 #         self.right = right
 class Solution(object):
     def preorderTraversal(self, root):
-        result = []
+        result = []  # Initialize an empty list to store the result.
 
-        def preorderTraverse(tree):
-            if tree is not None:
-                result.append(tree.val)
-                preorderTraverse(tree.left)
-                preorderTraverse(tree.right)
+        def preorder(node):
+            if node:
+                result.append(node.val)  # Append the value to the result list.
+                preorder(node.left)
+                preorder(node.right)
 
-        preorderTraverse(root)
-        return result
-        
+        preorder(root)  # Start the traversal from the root node.
+        return result  # Return the result list. 
+
+      
