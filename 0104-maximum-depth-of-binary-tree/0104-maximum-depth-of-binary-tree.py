@@ -10,7 +10,24 @@
 
 #Iterative BFS/ level order traversal for finding max depth of binary tree----------------------------------------
 #Base case : Tree empty return 0 bacause the max depth of a empty tree is 0
-#Maintain level
+#Typically BFS includes a queue
+#Maintain level : level = 1
+#have a queue with staring value the root of the tree:  q = deque([root])
+#Initial level is 1 and keep going until queue is empty : while q
+#Take a snap shot of length of queue: level_size = len(q)
+# Traverse entire level  : for i in range(level_size):
+#Add next level once the loop is finished : level += 1  after the for loop ends
+#For every node pop left of queue and store in "node":  node = q.popleft()
+# and add its children only if the children are not null
+#That means atleast one children we are considering through our code :
+#                if node.left:
+                #     q.append(node.left)
+                
+                # if node.right:
+                #     q.append(node.right)
+#So the level will start from 0 instead of 1
+
+
 
 class Solution:
     def maxDepth(self, root):
@@ -21,7 +38,7 @@ class Solution:
         q = deque([root])
         
         while q:
-            level += 1 
+            
             level_size = len(q)  
             
             for i in range(level_size):
@@ -32,7 +49,7 @@ class Solution:
                 
                 if node.right:
                     q.append(node.right)
-        
+            level += 1 
         return level
 
 
