@@ -17,17 +17,6 @@
 #-best path for me : max(lp,rp,1+ld+rd)
 #Our actual function needs no. of edges:
 
-
-# class Solution(object):
-#     def diameterOfBinaryTree(self, root):
-#         def f(root):
-#             if root:
-#                 ld, Ip = f(root.left)
-#                 rd, rp = f(root.right)
-#                 return 1 + max(ld, rd), max(rp, 1 + ld + rd)
-#             return 0, 0
-
-#         return f(root)[1] - 1
 class Solution(object):
     def diameterOfBinaryTree(self, root):
         def f(root):
