@@ -3,17 +3,17 @@
 #We have to first create a nested function because we have to build the result 
 #Then the base case :if the root does not exit 
 #Then the function 
-# class Solution(object):
-#     def inorderTraversal(self, root):
-#         res = []
-#         def inorder(root):
-#             if not root:
-#                 return
-#             inorder(root.left)
-#             res.append(root.val)
-#             inorder(root.right)
-#         inorder(root)
-#         return res
+class Solution(object):
+    def inorderTraversal(self, root):
+        res = []
+        def inorder(root):
+            if not root:
+                return
+            inorder(root.left)
+            res.append(root.val)
+            inorder(root.right)
+        inorder(root)
+        return res
 
 
 #Iterative solution
