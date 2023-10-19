@@ -1,20 +1,24 @@
-class Solution:
+class Solution(object):
     def permuteUnique(self, nums):
-        res=[]
-        n=len(nums)
-        def dfs(path,k):
-            if k==n-1:
-                res.append(path)
+        def solve(idx, nums):
+            # GOAL / Base case
+            if idx == n-1:
+                ans.append(nums)
                 return
-            for i in range(k,n):
-                if i>k and path[i]==path[k]:
-                    continue
-                if i>k:
-                    path[i],path[k]=path[k],path[i]
-                    dfs(path[:],k+1)
-                    #path[i],path[k]=path[k],path[i]
-                elif i==k:
-                    dfs(path[:],k+1)
-        nums=sorted(nums)       
-        dfs(nums,0)
-        return res
+
+            for i in range(idx, n):
+                if i > idx and nums[i] == nums[idx]:
+                    continue  # Skip duplicates
+
+                if i > idx:
+                    nums[i], nums[idx] = nums[idx], nums[i]
+                    solve(idx + 1, nums[:])  # Call solve with the updated index and list
+                    # nums[i], nums[idx] = nums[idx], nums[i]  # Swap back to the original state
+                else:
+                    solve(idx + 1, nums[:])
+
+        n = len(nums)
+        ans = []
+        nums.sort()  # Sort the input list to group duplicates
+        solve(0, nums)
+        return ans
