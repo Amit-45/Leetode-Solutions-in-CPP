@@ -12,7 +12,7 @@ class Solution(object):
 
                 if i > idx:
                     nums[i], nums[idx] = nums[idx], nums[i]
-                    solve(idx + 1, nums[:])  # Call solve with the updated index and list
+                    solve(idx + 1, nums[:]) 
                     # nums[i], nums[idx] = nums[idx], nums[i]  # Swap back to the original state
                 else:
                     solve(idx + 1, nums[:])
