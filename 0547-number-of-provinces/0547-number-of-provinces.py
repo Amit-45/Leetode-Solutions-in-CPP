@@ -1,27 +1,19 @@
-#Approach : Same as BFS using undirected graph----------------------
-#Differences :-
-#-added a count 
-#-changed all adj to connected 
-class Solution(object):
+# -----Alterative solution (riddhi)--------------
+class Solution:
     def findCircleNum(self, isConnected):
-        vis = set()
         n = len(isConnected)
-        count = 0
+        visited = [False] * n
+        provinces = 0
+
         for i in range(n):
-            if i in vis:
-                continue
-            count+=1
-            vis.add(i)
-            q = deque([i])
+            if not visited[i]:
+                provinces += 1
+                self.dfs(i, isConnected, visited)
 
-            while q:
-                el = q.pop()
+        return provinces
 
-
-                for adjel in range(n):
-                    if isConnected[el][adjel] and adjel not in vis:
-                        vis.add(adjel)
-                        q.appendleft(adjel)
-        return count
-     
-        
+    def dfs(self, node, isConnected, visited):
+        visited[node] = True
+        for neighbor in range(len(isConnected)):
+            if isConnected[node][neighbor] == 1 and not visited[neighbor]:
+                self.dfs(neighbor, isConnected, visited)
